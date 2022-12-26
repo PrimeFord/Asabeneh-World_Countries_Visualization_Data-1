@@ -43,3 +43,21 @@ body {
 .info span:first-child {
   margin-right: 0.5rem;
 }
+.main {
+  width: 100%;
+  background-color: #f0efef;
+  display: flex;
+  justify-content: center;
+}
+.name {
+  height: max-content;
+  width: 15%;
+}
+.charts {
+  height: max-content;
+  width: 40%;
+}
+.figures {
+  height: max-content;
+  width: 15%;
+}
