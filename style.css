@@ -48,16 +48,21 @@ body {
   background-color: #f0efef;
   display: flex;
   justify-content: center;
+  align-items: center;
+  padding: 3rem 0;
 }
 .name {
   height: max-content;
-  width: 15%;
+  width: 100%;
+  color: #565657;
 }
-.charts {
+/* .charts {
   height: max-content;
   width: 40%;
-}
-.figures {
+  margin: 0 0.3rem;
+} */
+/* .figures {
   height: max-content;
-  width: 15%;
-}
+  width: 10%;
+  color: #565657;
+} */
