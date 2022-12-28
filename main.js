@@ -2291,20 +2291,61 @@ const charts = document.querySelector(".charts");
 const figures = document.querySelector(".figures");
 
 //the default view
-const defaultView = () => {
+for (const n of newArr) {
+  const p = document.createElement("p");
+  const p1 = document.createElement("p");
+  p1.textContent = n.name;
+  p1.style.height = "auto";
+  p1.style.display = "flex";
+  p1.style.width = "15rem";
+  p1.style.alignItems = "center";
+  p1.style.justifyContent = "start";
+  // p1.style.textAlign = "center";
+  p.appendChild(p1);
+
+  const ptab = document.createElement("p");
+  const p2 = document.createElement("p");
+  p2.style.height = "1.8rem";
+  p2.style.width = (n.population / totalPopulation) * 100 + "%";
+  p2.style.display = "flex";
+  p2.style.background = "#f2a93b";
+  p2.style.alignItems = "center";
+  //   p2.style.margin = "0 0.4rem";
+  ptab.appendChild(p2);
+  p.appendChild(ptab);
+  ptab.style.width = "40%";
+
+  const p3 = document.createElement("p");
+  p3.textContent = n.population;
+  p3.style.height = "1.8rem";
+  p3.style.width = "10rem";
+  p3.style.display = "flex";
+  p3.style.alignItems = "center";
+  // p3.style.marginLeft = "0.2rem";
+  p.appendChild(p3);
+  p.style.gap = "0.3rem";
+  p.style.width = "100vw";
+  p.style.display = "flex";
+  p.style.justifyContent = "center";
+  p.style.marginBottom = "0.2rem";
+  names.appendChild(p);
+}
+
+//event listeners
+pop.addEventListener("click", () => {
+  names.innerHTML = "";
   for (const n of newArr) {
     const p = document.createElement("p");
     const p1 = document.createElement("p");
     p1.textContent = n.name;
-    p1.style.height = "1.8rem";
+    p1.style.height = "auto";
     p1.style.display = "flex";
-    p1.style.width = "15%";
+    p1.style.width = "15rem";
     p1.style.alignItems = "center";
-    //   p1.style.justifyContent = "start";
-    p1.style.textAlign = "left";
+    p1.style.justifyContent = "start";
+    // p1.style.textAlign = "center";
     p.appendChild(p1);
 
-    charts.width = "max-content";
     const ptab = document.createElement("p");
     const p2 = document.createElement("p");
     p2.style.height = "1.8rem";
@@ -2320,21 +2361,60 @@ const defaultView = () => {
     const p3 = document.createElement("p");
     p3.textContent = n.population;
     p3.style.height = "1.8rem";
+    p3.style.width = "10rem";
     p3.style.display = "flex";
     p3.style.alignItems = "center";
-    p3.style.marginLeft = "0.2rem";
+    // p3.style.marginLeft = "0.2rem";
     p.appendChild(p3);
-    p.style.width = "100%";
+    p.style.gap = "0.3rem";
+    p.style.width = "100vw";
     p.style.display = "flex";
     p.style.justifyContent = "center";
     p.style.marginBottom = "0.2rem";
     names.appendChild(p);
   }
-};
-// defaultView();
+});
 
-//event listeners
-pop.addEventListener("click", defaultView());
+// lang.addEventListener("click", LanguageView());
 lang.addEventListener("click", () => {
   names.textContent = "";
+  for (const n of newArr) {
+    const p = document.createElement("p");
+    const p1 = document.createElement("p");
+    p1.textContent = n.name;
+    p1.style.height = "auto";
+    p1.style.display = "flex";
+    p1.style.width = "15rem";
+    p1.style.alignItems = "center";
+    p1.style.justifyContent = "start";
+    // p1.style.textAlign = "center";
+    p.appendChild(p1);
+
+    const ptab = document.createElement("p");
+    const p2 = document.createElement("p");
+    p2.style.height = "1.8rem";
+    p2.style.width = (n.population / totalPopulation) * 100 + "%";
+    p2.style.display = "flex";
+    p2.style.background = "#f2a93b";
+    p2.style.alignItems = "center";
+    //   p2.style.margin = "0 0.4rem";
+    ptab.appendChild(p2);
+    p.appendChild(ptab);
+    ptab.style.width = "40%";
+
+    const p3 = document.createElement("p");
+    p3.textContent = n.population;
+    p3.style.height = "1.8rem";
+    p3.style.width = "10rem";
+    p3.style.display = "flex";
+    p3.style.alignItems = "center";
+    // p3.style.marginLeft = "0.2rem";
+    p.appendChild(p3);
+    p.style.gap = "0.3rem";
+    p.style.width = "100vw";
+    p.style.display = "flex";
+    p.style.justifyContent = "center";
+    p.style.marginBottom = "0.2rem";
+    names.appendChild(p);
+  }
 });

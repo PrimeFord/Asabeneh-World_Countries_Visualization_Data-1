@@ -38,10 +38,13 @@ body {
 .info span {
   background-color: #f2a93b;
   font-size: 0.8rem;
-  padding: 0.2rem 0.5rem;
+  padding: 0.3rem 0.7rem;
 }
 .info span:first-child {
   margin-right: 0.5rem;
+}
+.info p {
+  margin-top: 1rem;
 }
 .main {
   width: 100%;
