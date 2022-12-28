@@ -2283,13 +2283,12 @@ langs.sort((a, b) => {
   return 0;
 });
 let tenlang = langs.slice(0, 10);
-console.log(tenlang);
+
 //total language
 let totalLang = 0;
 for (const t of tenlang) {
   totalLang += t.count;
 }
-console.log(totalLang);
 
 //sorting form largest to smallest
 let countrySort = countries_data.sort((a, b) => {
