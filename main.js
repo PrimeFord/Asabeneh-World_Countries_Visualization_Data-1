@@ -2263,6 +2263,34 @@ for (const p of countries_data) {
   totalPopulation += p.population;
 }
 
+//Language filter
+let langs = [];
+countries_data.map((n) => {
+  for (const c of n.languages) {
+    const langExist = langs.find((d) => d.country === c);
+    const langIndex = langs.findIndex((d) => d.country === c);
+    if (langExist) {
+      langs.splice(langIndex, 1, { ...langExist, count: langExist.count + 1 });
+    } else {
+      langs.push({ country: c, count: 1 });
+    }
+  }
+});
+
+langs.sort((a, b) => {
+  if (a.count > b.count) return -1;
+  if (a.count < b.count) return 1;
+  return 0;
+});
+let tenlang = langs.slice(0, 10);
+console.log(tenlang);
+//total language
+let totalLang = 0;
+for (const t of tenlang) {
+  totalLang += t.count;
+}
+console.log(totalLang);
+
 //sorting form largest to smallest
 let countrySort = countries_data.sort((a, b) => {
   if (a.population > b.population) return -1;
@@ -2378,10 +2406,10 @@ pop.addEventListener("click", () => {
 // lang.addEventListener("click", LanguageView());
 lang.addEventListener("click", () => {
   names.textContent = "";
-  for (const n of newArr) {
+  for (const n of tenlang) {
     const p = document.createElement("p");
     const p1 = document.createElement("p");
-    p1.textContent = n.name;
+    p1.textContent = n.country;
     p1.style.height = "auto";
     p1.style.display = "flex";
     p1.style.width = "15rem";
@@ -2393,7 +2421,7 @@ lang.addEventListener("click", () => {
     const ptab = document.createElement("p");
     const p2 = document.createElement("p");
     p2.style.height = "1.8rem";
-    p2.style.width = (n.population / totalPopulation) * 100 + "%";
+    p2.style.width = (n.count / totalLang) * 100 + "%";
     p2.style.display = "flex";
     p2.style.background = "#f2a93b";
     p2.style.alignItems = "center";
@@ -2403,7 +2431,7 @@ lang.addEventListener("click", () => {
     ptab.style.width = "40%";
 
     const p3 = document.createElement("p");
-    p3.textContent = n.population;
+    p3.textContent = n.count;
     p3.style.height = "1.8rem";
     p3.style.width = "10rem";
     p3.style.display = "flex";
